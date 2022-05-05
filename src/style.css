@@ -12,6 +12,7 @@
     font-weight: 400;
     display: grid;
     place-items: center;
+    padding: .5rem 0;
 }
 
 .app-title {
@@ -41,6 +42,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 1.5rem;
 }
 
 .button-copy-code {
@@ -88,6 +90,7 @@
     box-shadow: 0 0 20px rgb(230, 230, 230);
     cursor: pointer;
     transition: transform 100ms ease;
+    margin-bottom: 1.5rem;
 }
 
 .rounded-item_change-size:active,
@@ -144,4 +147,10 @@
     flex-wrap: wrap;
     justify-content: space-between;
     gap: 15px;
+}
+
+@media (max-width: 370px) {
+    .input-value.size {
+        width: 100% !important;
+    }
 }
