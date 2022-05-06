@@ -1,43 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <script defer src="app.js"></script>
-    <title>Border Radius Generator</title>
-</head>
-<body>
-    <main class="app">
-        <section class="app-content">
-            <header>
-                <h1 class="app-title">Border Radius Generator</h1>
-            </header>
-            <div title="Live view of element" class="rounded-item">
-            </div>
-            <button class="rounded-item_change-size">Change element size</button>
-            <button class="button-copy-code">Copy to ClipBoard</button>
-            <div class="copy-notification">
-                <h2>text has been copied</h2>
-            </div>
-            <section class="round-item-size-inputs">
-                <div> 
-                    <label class="input-caption" for="width">width</label>
-                    <input maxlength="4" data-maxvalue="4" data-place="width" max="500" id="width" type="number" class="input-value size">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="style.css" />
+        <script defer src="app.js"></script>
+        <script src="https://kit.fontawesome.com/753d009a2f.js" crossorigin="anonymous"></script>
+        <title>Border Radius Generator</title>
+    </head>
+    <body>
+        <main class="app">
+            <section class="app-content">
+                <header>
+                    <h1 class="app-title">Border Radius Generator</h1>
+                </header>
+                <div title="Live view of element" class="rounded-item"></div>
+                <button class="rounded-item_change-size">Change element size</button>
+                <button class="button-copy-code">Copy to ClipBoard</button>
+                <div class="copy-notification">
+                    <button aria-label="close notification" class="button-copy-code close-notification">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                    <h2>text has been copied</h2>
                 </div>
-                <div>
-                    <label class="input-caption" for="height">height</label>
-                    <input maxlength="4" data-place="height" max="500" type="number" id="height" class="input-value size">
+                <div class="copy-notification error">
+                    <button aria-label="close notification" class="button-copy-code close-notification error">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                    <h2>Nothing to copy</h2>
                 </div>
+                <section class="round-item-size-inputs">
+                    <div>
+                        <label class="input-caption" for="width">width</label>
+                        <input min="0" max="500" data-place="width" id="width" type="number" class="input-value" />
+                    </div>
+                    <div>
+                        <label class="input-caption" for="height">height</label>
+                        <input min="0" max="500" data-place="height" type="number" id="height" class="input-value" />
+                    </div>
+                </section>
+                <section class="border-radius-settings">
+                    <input
+                        data-place="borderTopLeftRadius"
+                        min="0"
+                        max="500"
+                        placeholder="top-left-radius"
+                        class="input-value"
+                        type="number"
+                    />
+                    <input
+                        data-place="borderTopRightRadius"
+                        min="0"
+                        max="500"
+                        placeholder="top-right-radius"
+                        class="input-value"
+                        type="number"
+                    />
+                    <input
+                        data-place="borderBottomLeftRadius"
+                        min="0"
+                        max="500"
+                        placeholder="bottom-left-radius"
+                        class="input-value"
+                        type="number"
+                    />
+                    <input
+                        data-place="borderBottomRightRadius"
+                        min="0"
+                        max="500"
+                        placeholder="bottom-right-radius"
+                        class="input-value"
+                        type="number"
+                    />
+                </section>
             </section>
-            <section class="border-radius-settings">
-                <input data-place="borderTopLeftRadius" min="0" max="500" placeholder="top-left-radius" class="input-value" type="number">
-                <input data-place="borderTopRightRadius" min="0" max="500" placeholder="top-right-radius" class="input-value" type="number">
-                <input data-place="borderBottomLeftRadius" min="0" max="500" placeholder="bottom-left-radius" class="input-value" type="number">
-                <input data-place="borderBottomRightRadius" min="0" max="500" placeholder="bottom-right-radius" class="input-value" type="number">
-            </section>
-        </section>
-    </main>
-</body>
+        </main>
+    </body>
 </html>

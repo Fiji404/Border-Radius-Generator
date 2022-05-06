@@ -1,42 +1,49 @@
-const changeSizeOfElement = document.querySelector('.rounded-item_change-size');
-const changeSizePanel = document.querySelector('.round-item-size-inputs');
-const elementPreview = document.querySelector('.rounded-item');
-const inputSizeValues = document.querySelectorAll('.input-value');
-const buttonCopyToClipboard = document.querySelector('.button-copy-code');
-const copyNotification = document.querySelector('.copy-notification');
+const elementLivePreview = document.querySelector(".rounded-item");
+const changeSizeOfElement = document.querySelector(".rounded-item_change-size");
+const elementChangeSizePanel = document.querySelector(".round-item-size-inputs");
+const inputSizeElements = document.querySelectorAll(".input-value");
+const buttonCopyToClipboard = document.querySelector(".button-copy-code");
+const copyNotification = document.querySelectorAll(".copy-notification");
+const closeCopyNotificationBtn = document.querySelectorAll(".close-notification");
 
-changeSizeOfElement.addEventListener('click', () => {
-    changeSizePanel.classList.toggle('active');
+changeSizeOfElement.addEventListener("click", () => {
+    elementChangeSizePanel.classList.toggle("active");
 });
 
-const elementPreviewDetails = {};
-inputSizeValues.forEach(sizeInput => {
-    sizeInput.addEventListener('input', () => {
-        if (sizeInput.value.length > sizeInput.dataset.maxvalue) {
-            sizeInput.value.slice(0, sizeInput.dataset.maxvalue)
+inputSizeElements.forEach((sizeInput) => {
+    sizeInput.addEventListener("input", () => {
+        if (sizeInput.value.length > 3) {
+            sizeInput.value = sizeInput.value.slice(0, 3);
         }
-        sizeInput.addEventListener("input", () => {
-            const maxChars = sizeInput.max.length
-            if (sizeInput.value.length > maxChars) {
-              sizeInput.value = sizeInput.value.slice(0, maxChars);
-            }
-          });
         const placeName = sizeInput.dataset.place;
-        const addedInfo = elementPreview.style[placeName] = `${sizeInput.value}px`;
-        elementPreviewDetails[placeName] = addedInfo;
-        consoleg.log(elementPreviewDetails)
-        for (const key in elementPreviewDetails) {
-            const objectKey = key.toLocaleLowerCase().split().join('-');
+        elementLivePreview.style[placeName] = `${sizeInput.value}px`;
+        });
+});
+
+buttonCopyToClipboard.addEventListener("click", () => {
+        if (copyNotification[0].classList.contains('active')) {
+            copyNotification[0].classList.remove('active')
         }
+        
+    const stringPropertiesWithValuesOfElement = `
+width: ${elementLivePreview.style.width};
+height: ${elementLivePreview.style.height};
+border-top-left-radius: ${elementLivePreview.style.borderTopLeftRadius};
+border-top-right-radius: ${elementLivePreview.style.borderTopRightRadius};
+border-bottom-left-radius: ${elementLivePreview.style.borderBottomLeftRadius};
+border-bottom-right-radius: ${elementLivePreview.style.borderBottomRightRadius};
+    `
+    navigator.clipboard.writeText(stringPropertiesWithValuesOfElement).then(() => {
+        if (copyNotification[1].classList.contains('active')) {
+            copyNotification[1].classList.remove('active')
+        }
+        copyNotification[0].classList.add("active");
     });
 });
 
-
-buttonCopyToClipboard.addEventListener('click', () => {
-    navigator.clipboard.writeText(JSON.stringify(elementPreviewDetails)).then(() => {
-        copyNotification.classList.add('active');
-        copyNotification.addEventListener('click', () => {
-            copyNotification.classList.remove('active')
-        })
-    })
+closeCopyNotificationBtn.forEach(closeButton => {
+    closeButton.addEventListener('click', () => {
+        const currentParent = closeButton.closest(".copy-notification");
+        currentParent.classList.remove('active');
+    });
 });

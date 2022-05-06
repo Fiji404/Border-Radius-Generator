@@ -71,12 +71,28 @@
     transform: translate(-50%);
     min-height: 50px;
     transition: top 400ms ease;
-    cursor: pointer;
     top: -100vh;
+}
+
+.copy-notification.error {
+    background-color: rgb(255, 136, 136);
 }
 
 .copy-notification.active {
     top: 1rem;
+}
+
+.close-notification {
+    cursor: pointer;
+    float: right;
+    right: .5rem;
+    top: .5rem;
+}
+
+.close-notification.error {
+    background-color: rgb(255, 83, 83);
+    outline-color: transparent;
+    box-shadow: 0 0 20px 0 rgb(255, 136, 136);
 }
 
 .rounded-item_change-size {
@@ -120,9 +136,16 @@
     text-transform: uppercase;
     font-weight: 600;
     letter-spacing: 1px;
+    margin-right: 8px;
 }
 
+.input-caption[for="width"] {
+    margin-right: 12px;
+}
+ 
 .input-value {
+    width: min(100%, 300px);
+    min-width: 200px;
     font-family: 'Poppins', sans-serif;
     text-align: center;
     padding: 0 .2rem;
@@ -133,7 +156,7 @@
     min-height: 40px;
     border-radius: .4rem;
     text-overflow: ellipsis;
-    flex-grow: 1;
+
 }
 
 .input-value:focus {
@@ -145,12 +168,6 @@
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
     gap: 15px;
-}
-
-@media (max-width: 370px) {
-    .input-value.size {
-        width: 100% !important;
-    }
 }
