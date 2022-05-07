@@ -1,0 +1,24 @@
+{
+  "name": "border-radius-generator",
+  "version": "1.0.0",
+  "description": "Project supposed to give quick preview for adding border radius to specific corners",
+  "scripts": {
+    "dev": "parcel src/pages/index.html",
+    "build": "parcel build src/pages/index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Fiji404/Border-Radius-Generator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Fiji404/Border-Radius-Generator/issues"
+  },
+  "homepage": "https://github.com/Fiji404/Border-Radius-Generator#readme",
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.5.0",
+    "parcel": "^2.5.0"
+  }
+}

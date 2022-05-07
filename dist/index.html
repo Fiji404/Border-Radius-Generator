@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/index.dda6fa14.css">
+        <script defer="" src="/index.a56319bd.js">
+</script>
+        <script src="https://kit.fontawesome.com/753d009a2f.js" crossorigin="anonymous"></script>
+        <title>Border Radius Generator</title>
+    </head>
+    <body>
+        <main class="app">
+            <section class="app-content">
+                <header class="app-content__header">
+                    <h1 class="app__title">Border Radius Generator</h1>
+                </header>
+                <div title="Live view of element" class="live-preview-component">
+                    <button type="reset" class="generic-button-style clear-inputs" aria-label="clear inputs">
+                        <i class="fa-solid fa-arrow-rotate-left"></i>
+                    </button>
+                </div>
+                <button class="generic-button-style live-preview-component_change-size">Change element size</button>
+                <button class="generic-button-style button-copy-code">Copy to ClipBoard</button>
+                <div class="copy-pop-up">
+                    <button aria-label="close notification" class="generic-button-style copy-pop-up_close">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                    <h2>text has been copied</h2>
+                </div>
+                <form class="live-preview-component_input-sizes">
+                    <div class="live-preview-component_input-sizes__col">
+                        <label class="input-caption" for="width">width</label>
+                        <input min="0" max="500" data-place="width" id="width" type="number" class="input-element">
+                    </div>
+                    <div class="live-preview-component_input-sizes__col">
+                        <label class="input-caption" for="height">height</label>
+                        <input min="0" max="500" data-place="height" type="number" id="height" class="input-element">
+                    </div>
+                </form>
+                <section class="border-radius-settings">
+                    <input data-place="borderTopLeftRadius" min="0" max="500" placeholder="top-left-radius" class="input-element" type="number">
+                    <input data-place="borderTopRightRadius" min="0" max="500" placeholder="top-right-radius" class="input-element" type="number">
+                    <input data-place="borderBottomLeftRadius" min="0" max="500" placeholder="bottom-left-radius" class="input-element" type="number">
+                    <input data-place="borderBottomRightRadius" min="0" max="500" placeholder="bottom-right-radius" class="input-element" type="number">
+                </section>
+            </section>
+        </main>
+    </body>
+</html>

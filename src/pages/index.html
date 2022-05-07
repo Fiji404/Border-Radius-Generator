@@ -4,49 +4,47 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="style.css" />
-        <script defer src="app.js"></script>
+        <link rel="stylesheet" href="../sass/styles.scss" />
+        <script type="module" defer src="../scripts/app.js">module;</script>
         <script src="https://kit.fontawesome.com/753d009a2f.js" crossorigin="anonymous"></script>
         <title>Border Radius Generator</title>
     </head>
     <body>
         <main class="app">
             <section class="app-content">
-                <header>
-                    <h1 class="app-title">Border Radius Generator</h1>
+                <header class="app-content__header">
+                    <h1 class="app__title">Border Radius Generator</h1>
                 </header>
-                <div title="Live view of element" class="rounded-item"></div>
-                <button class="rounded-item_change-size">Change element size</button>
-                <button class="button-copy-code">Copy to ClipBoard</button>
-                <div class="copy-notification">
-                    <button aria-label="close notification" class="button-copy-code close-notification">
+                <div title="Live view of element" class="live-preview-component">
+                    <button type="reset" class="generic-button-style clear-inputs" aria-label="clear inputs">
+                        <i class="fa-solid fa-arrow-rotate-left"></i>
+                    </button>
+                </div>
+                <button class="generic-button-style live-preview-component_change-size">Change element size</button>
+                <button class="generic-button-style button-copy-code">Copy to ClipBoard</button>
+                <div class="copy-pop-up">
+                    <button aria-label="close notification" class="generic-button-style copy-pop-up_close">
                         <i class="fa-solid fa-xmark"></i>
                     </button>
                     <h2>text has been copied</h2>
                 </div>
-                <div class="copy-notification error">
-                    <button aria-label="close notification" class="button-copy-code close-notification error">
-                        <i class="fa-solid fa-xmark"></i>
-                    </button>
-                    <h2>Nothing to copy</h2>
-                </div>
-                <section class="round-item-size-inputs">
-                    <div>
+                <form class="live-preview-component_input-sizes">
+                    <div class="live-preview-component_input-sizes__col">
                         <label class="input-caption" for="width">width</label>
-                        <input min="0" max="500" data-place="width" id="width" type="number" class="input-value" />
+                        <input min="0" max="500" data-place="width" id="width" type="number" class="input-element" />
                     </div>
-                    <div>
+                    <div class="live-preview-component_input-sizes__col">
                         <label class="input-caption" for="height">height</label>
-                        <input min="0" max="500" data-place="height" type="number" id="height" class="input-value" />
+                        <input min="0" max="500" data-place="height" type="number" id="height" class="input-element" />
                     </div>
-                </section>
+                </form>
                 <section class="border-radius-settings">
                     <input
                         data-place="borderTopLeftRadius"
                         min="0"
                         max="500"
                         placeholder="top-left-radius"
-                        class="input-value"
+                        class="input-element"
                         type="number"
                     />
                     <input
@@ -54,7 +52,7 @@
                         min="0"
                         max="500"
                         placeholder="top-right-radius"
-                        class="input-value"
+                        class="input-element"
                         type="number"
                     />
                     <input
@@ -62,7 +60,7 @@
                         min="0"
                         max="500"
                         placeholder="bottom-left-radius"
-                        class="input-value"
+                        class="input-element"
                         type="number"
                     />
                     <input
@@ -70,7 +68,7 @@
                         min="0"
                         max="500"
                         placeholder="bottom-right-radius"
-                        class="input-value"
+                        class="input-element"
                         type="number"
                     />
                 </section>
