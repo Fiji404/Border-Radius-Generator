@@ -6,38 +6,34 @@ const inputSizeElements = document.querySelectorAll(".input-element");
 const buttonCopyToClipboard = document.querySelector(".button-copy-code");
 const copyNotification = document.querySelector(".copy-pop-up");
 const closeCopyNotification = document.querySelector(".copy-pop-up_close");
-const resetValuesOfInputs = document.querySelector(".generic-button-style.clear-inputs");
+const resetValuesOfInputs = document.querySelector(".clear-inputs");
+const checkElementStyle = (styleName) =>  styleName || 0;
 
 changeSizeOfElementBtn.addEventListener("click", () => {
     elementChangeSizePanel.classList.toggle("active");
 });
 
-inputSizeElements.forEach((sizeInput) => {
-    sizeInput.addEventListener("input", () => {
+inputSizeElements.forEach((inputElement) => {
+    inputElement.addEventListener("input", () => {
+        const propertyName = inputElement.dataset.place;
         const onlyNumberRegExp = new RegExp("[0-9]");
-        if (onlyNumberRegExp.test(sizeInput.value)) {
-            const placeName = sizeInput.dataset.place;
-            elementLivePreview.style[placeName] = `${sizeInput.value}px`;
-            sizeInput.value = sizeInput.value.slice(0, 3);
+        if (onlyNumberRegExp.test(inputElement.value)) {
+            inputElement.value = inputElement.value.slice(0, 3);
+            elementLivePreview.style[propertyName] = `${inputElement.value}px`;
         } else {
-            sizeInput.value = sizeInput.value.slice(0, 0);
+            inputElement.value = '';
         }
     });
 });
 
-const isStyleExist = (styleName) => {
-    return styleName ? styleName : 0;
-};
-
 buttonCopyToClipboard.addEventListener("click", () => {
-    const stringStylesOfElement = `
-width: ${elementLivePreview.offsetWidth}px;
-height: ${elementLivePreview.offsetHeight}px;
-border-radius: ${isStyleExist(elementLivePreview.style.borderTopLeftRadius)} ${isStyleExist(
+    const stringStylesOfElement = `width: ${elementLivePreview.offsetWidth}px;
+    height: ${elementLivePreview.offsetHeight}px;
+    border-radius: ${checkElementStyle(elementLivePreview.style.borderTopLeftRadius)} ${checkElementStyle(
         elementLivePreview.style.borderTopRightRadius
-    )} ${isStyleExist(elementLivePreview.style.borderBottomLeftRadius)} ${isStyleExist(
+    )} ${checkElementStyle(elementLivePreview.style.borderBottomLeftRadius)} ${checkElementStyle(
         elementLivePreview.style.borderBottomRightRadius
-    )}
+    )};
     `;
     navigator.clipboard.writeText(stringStylesOfElement).then(() => {
         copyNotification.classList.add("active");

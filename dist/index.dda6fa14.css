@@ -1,4 +1,30 @@
 @import "https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap";
+.theme-toggle {
+  float: right;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  background-color: #0000;
+  border: 2px solid #f0f0f0;
+  border-radius: 50%;
+}
+
+.theme-toggle__icon {
+  font-size: 20px;
+}
+
+.theme-toggle__icon_moon {
+  display: none;
+}
+
+.theme-toggle.active .theme-toggle__icon_moon {
+  display: inline;
+}
+
+.theme-toggle.active .theme-toggle__icon_sun {
+  display: none;
+}
+
 *, :before, :after {
   box-sizing: border-box;
   margin: 0;
@@ -7,6 +33,7 @@
 
 .app {
   min-height: 100vh;
+  background-color: #fff;
   place-items: center;
   padding: .5rem 0;
   font-family: Poppins, sans-serif;
@@ -16,6 +43,7 @@
 
 .app__title {
   text-align: center;
+  margin-inline: auto;
 }
 
 .app-content {
@@ -27,7 +55,14 @@
   gap: 1rem;
   padding: 1rem;
   display: flex;
-  box-shadow: 0 0 20px #f0f0f0;
+  box-shadow: 0 0 10px #f0f0f0;
+}
+
+.app-content__header {
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
 }
 
 .live-preview-component {
@@ -37,43 +72,38 @@
   height: 200px;
   min-width: 100px;
   min-height: 100px;
-  border: 2px solid #e6e6e6;
+  border: 1px solid #e4e4e4;
   place-items: center;
   margin-bottom: 1.5rem;
   transition: all .15s, border-radius .25s;
   display: grid;
-  box-shadow: 0 0 20px #e7e7e7;
+  box-shadow: 0 0 5px #e4e4e4;
 }
 
 .generic-button-style {
   cursor: pointer;
   background-color: #fff;
   border: none;
-  border-radius: 1rem;
+  border-radius: 1.2rem;
   outline: 2px solid #e6e6e6;
   padding: .3rem .8rem;
   font-family: Poppins, sans-serif;
   font-size: 15px;
   font-weight: 600;
-  box-shadow: 0 0 20px #e4e4e4;
+  transition: transform .1s;
+  box-shadow: 0 0 10px #e4e4e4;
 }
 
 .generic-button-style.clear-inputs {
   aspect-ratio: 1 / 1;
   border-radius: 50%;
-  transition: transform .5s ease-in-out;
-}
-
-.generic-button-style.clear-inputs:focus {
-  transform: rotate(-1turn);
 }
 
 .copy-pop-up {
   width: min(90%, 400px);
   text-align: center;
-  min-height: 50px;
   background-color: #fff;
-  border: 2px solid #e6e6e6;
+  border: 1px solid #e6e6e6;
   border-radius: 1rem;
   padding: 1rem;
   transition: top .4s;
@@ -81,7 +111,7 @@
   top: -100vh;
   left: 50%;
   transform: translate(-50%);
-  box-shadow: 0 0 20px #e7e7e7;
+  box-shadow: 0 0 10px #e7e7e7;
 }
 
 .copy-pop-up.active {
@@ -94,13 +124,13 @@
 }
 
 .live-preview-component_change-size {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   padding: .6rem 2rem;
   font-size: 1.2rem;
 }
 
 .generic-button-style:active {
-  transform: scale(.98);
+  transform: scale(.96);
 }
 
 .live-preview-component_input-sizes {
@@ -151,11 +181,10 @@
 }
 
 .border-radius-settings {
-  width: 100%;
   flex-wrap: wrap;
   justify-content: center;
   gap: 15px;
-  margin-top: 50px;
+  margin-top: 1.3rem;
   display: flex;
 }
 
